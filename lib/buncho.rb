@@ -4,5 +4,8 @@ require_relative "buncho/version"
 
 module Buncho
   class Error < StandardError; end
-  # Your code goes here...
+
+  Dir[File.expand_path("buncho/**/*.rb", __dir__)].sort.each do |file|
+    require file
+  end
 end
