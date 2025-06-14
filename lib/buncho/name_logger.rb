@@ -2,6 +2,8 @@ module Buncho
   class NameLogger < BaseLogger
     DATA_FILE = File.expand_path("../../../data/names.txt", __FILE__)
 
+    attr_reader :names
+
     def initialize(file_path = DATA_FILE)
       super(DATA_FILE)
       @names = read_lines.each_with_index.to_h { |val, i| [i + 1, val.chomp] }
