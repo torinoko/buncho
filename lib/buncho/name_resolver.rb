@@ -18,8 +18,8 @@ module Buncho
       end
 
       if names.nil? || names.empty?
-        puts "Error: Please register your buncho_old's name."
-        puts "Example: buncho_old -n NAME"
+        puts "Error: Please register your buncho's name."
+        puts "Example: buncho -n NAME"
         exit 1
       end
 
@@ -27,7 +27,7 @@ module Buncho
         return names.values.first
       end
 
-      puts "Which buncho_old's data do you want to use? Enter the number."
+      puts "Which buncho's data do you want to use? Enter the number."
       names.each { |k, v| puts "#{k} #{v}" }
       input = STDIN.gets.chomp
       names[input.to_i]
