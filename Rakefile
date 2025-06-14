@@ -1,4 +1,7 @@
 require "rake/testtask"
+require "bundler/gem_tasks"
+
+task default: %i[]
 
 Rake::TestTask.new do |t|
   t.libs << "test"
