@@ -45,3 +45,9 @@ Which buncho's data do you want to use? Enter the number.
 1 sora
 2 yuki
 ```
+
+You can display the recorded weights.
+
+```
+% buncho -l
+```
