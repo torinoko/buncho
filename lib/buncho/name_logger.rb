@@ -1,5 +1,5 @@
 module Buncho
-  class NameLog
+  class NameLogger
     DATA_FILE = File.expand_path("../../../data/names.txt", __FILE__)
 
     attr_reader :names

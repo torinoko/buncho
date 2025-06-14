@@ -1,7 +1,7 @@
 require 'date'
 
 module Buncho
-  class WeightLog
+  class WeightLogger
     DATA_DIR_PATH = File.expand_path("../../../data/weight/", __FILE__)
 
     def initialize(name, file_path = DATA_DIR_PATH)
