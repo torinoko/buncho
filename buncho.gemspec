@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "gem for Buncho Body Weight Management"
   spec.description = "This is a Ruby gem for managing the body weight of Buncho."
-  spec.homepage = "https://github.com/torinoko/"
+  spec.homepage = "https://kamazuni-marunomi.com/"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
