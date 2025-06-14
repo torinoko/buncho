@@ -19,35 +19,18 @@ module Buncho
           end
         end.parse!
 
-        name = options[:name]
         weight = options[:weight]
-        names = logger.names
-        puts names
-
-        if name && !names.value?(name)
-          logger.add(name)
-        end
-
-        if names.nil? || names.empty?
-          puts "Error: Please register your buncho_old's name."
-          puts "Example: buncho_old -n NAME"
-          exit 1
-        end
-
-        if names.size == 1
-          name = names.values.first
-        else
-          puts "Which buncho_old's data do you want to use? Enter the number."
-          names.each { |k, v| puts "#{k} #{v}" }
-          input = STDIN.gets.chomp
-          name = names[input.to_i]
-        end
-
+        resolver = NameResolver.new(logger)
+        name = resolver.resolve_name(options[:name])
         weight_logger = WeightLogger.new(name)
 
         unless weight.nil?
           weight_logger.add(weight)
           puts "#{name}'s weight is #{weight}g."
+        end
+
+        if options[:weight_list]
+          weight_logger.show
         end
       end
     end
