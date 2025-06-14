@@ -2,7 +2,7 @@ require File.expand_path("../../test_helper", __dir__)
 
 class TestNameLogger < Minitest::Test
   def setup
-    file_path = File.expand_path("../../../data/names.txt", __FILE__)
+    file_path = File.expand_path("../../../data/names.txt", __dir__)
     File.delete(file_path) if File.exist?(file_path)
     @logger = ::Buncho::NameLogger.new(file_path)
   end

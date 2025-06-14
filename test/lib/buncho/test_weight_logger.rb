@@ -3,7 +3,7 @@ require File.expand_path("../../test_helper", __dir__)
 class TestWeightLogger < Minitest::Test
   def setup
     name = 'sora'
-    dir_path = File.expand_path("../../../data/weight/", __FILE__)
+    dir_path = File.expand_path("../../../data/weight/", __dir__)
     file_path = "#{dir_path}/#{name}.csv"
     File.delete(file_path) if File.exist?(file_path)
     @logger = ::Buncho::WeightLogger.new(name, dir_path)
