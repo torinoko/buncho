@@ -5,14 +5,9 @@ module Buncho
     attr_reader :names
 
     def initialize(file_path = DATA_FILE)
-      FileUtils.mkdir_p(File.dirname(file_path))
       @io = File.open(file_path, "a+")
       names = @io.read.split("\n")
       @names = names.each_with_index.to_h { |val, i| [i + 1, val.chomp] }
-    end
-
-    def name_exists?(name)
-      @names.value?(name)
     end
 
     def add(name)
@@ -25,7 +20,16 @@ module Buncho
     end
 
     def show
-      @names.each { |k, v| puts "#{k}. #{v}" }
+      puts "Buncho's List:"
+      puts @names
+    end
+
+    def name_exists?(name)
+      @names.value?(name)
+    end
+
+    def formatted_rows
+      @names.each { |k, v| "#{k}. #{v}" }
     end
   end
 end
