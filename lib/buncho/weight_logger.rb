@@ -1,13 +1,13 @@
 require 'date'
 
 module Buncho
-  class WeightLogger
+  class WeightLogger < BaseLogger
     DATA_DIR_PATH = File.expand_path("../../../data/weight/", __FILE__)
 
     def initialize(name, file_path = DATA_DIR_PATH)
       file_path = "#{file_path}/#{name}.csv"
-      @io = File.open(file_path, "a+")
       @name = name
+      super(file_path)
     end
 
     def add(weight, date = nil)
@@ -23,10 +23,10 @@ module Buncho
         puts "#{line[0]}: #{line[1]}g"
       end
     end
+
     def formatted_rows(n)
       @io.rewind
-      weights = @io.read.split("\n")
-      weights.reverse.first(n)
+      read_lines.reverse.first(n)
     end
   end
 end
