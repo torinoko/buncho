@@ -11,6 +11,7 @@ module Buncho
     end
 
     def add(weight, date = nil)
+      return if weight <= 0
       date = Date.today if date.nil?
       line = [date, weight].join(',')
       @io.write("#{line}\n")
