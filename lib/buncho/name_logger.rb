@@ -5,12 +5,11 @@ module Buncho
     attr_reader :names
 
     def initialize(file_path = DATA_FILE)
-      super(DATA_FILE)
+      super(file_path)
       @names = read_lines.each_with_index.to_h { |val, i| [i + 1, val.chomp] }
     end
 
     def add(name)
-      return if name_exists?(name)
 
       @io.write("#{name}\n")
       index = @names.keys.max.to_i + 1
