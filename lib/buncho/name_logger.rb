@@ -21,7 +21,7 @@ module Buncho
 
     def show
       puts "Buncho's List:"
-      puts @names
+      puts formatted_rows
     end
 
     def name_exists?(name)
@@ -29,7 +29,7 @@ module Buncho
     end
 
     def formatted_rows
-      @names.each { |k, v| "#{k}. #{v}" }
+      @names.map { |k, v| "#{k}. #{v}" }
     end
   end
 end
