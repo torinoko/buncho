@@ -7,6 +7,10 @@ module Buncho
       @io = File.open(path, "a+")
     end
 
+    def close
+      @io.close
+    end
+
     def read_lines
       @io.rewind
       File.exist?(@path) ? @io.read.split("\n") : []
