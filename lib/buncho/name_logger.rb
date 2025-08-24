@@ -10,6 +10,8 @@ module Buncho
     end
 
     def add(name)
+      return nil if name.nil? || name.empty?
+      return name if name_exists?(name)
 
       @io.write("#{name}\n")
       index = @names.keys.max.to_i + 1
